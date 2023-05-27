@@ -1,0 +1,18 @@
+---
+
+- name: Configure locale
+  ansible.builtin.locale_gen:
+    name: "{{ pi_locale }}"
+    state: present
+
+- name: Configure timezone
+  ansible.builtin.timezone:
+    name: "{{ pi_timezone }}"
+
+- name: Configure keyboard
+  ansible.builtin.template:
+    src: keyboard.j2
+    dest: /etc/default/keyboard
+    owner: root
+    group: root
+    mode: '0644'

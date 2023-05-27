@@ -1,0 +1,12 @@
+---
+
+- name: Set options in /boot/config.txt
+  ansible.builtin.blockinfile:
+    path: /boot/config.txt
+    insertafter: EOF
+    block: "{{ lookup('ansible.builtin.template', pi_boot_config_template) }}"
+  register: boot_config
+
+- name: Reboot system
+  ansible.builtin.reboot:
+  when: boot_config is changed

@@ -1,0 +1,12 @@
+---
+
+- name: Upgrade System
+  ansible.builtin.apt:
+    upgrade: dist
+    update_cache: true
+  when: pi_upgrade_system | bool
+  
+- name: Install packages
+  ansible.builtin.apt:
+    name: "{{ pi_packages }}"
+    update_cache: true

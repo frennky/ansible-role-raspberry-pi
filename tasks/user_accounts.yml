@@ -1,0 +1,19 @@
+---
+
+- name: Add user accounts to passwordless sudoers
+  ansible.builtin.lineinfile:
+    dest: /etc/sudoers
+    regexp: '^{{ item }}'
+    line: '{{ item }} ALL=(ALL) NOPASSWD: ALL'
+    state: present
+    validate: 'visudo -cf %s'
+    mode: 0440
+  with_items: "{{ pi_sudoers_passwordless }}"
+  when: pi_sudoers_passwordless | length > 0
+
+- name: Set authorized key and remove already set keys
+  ansible.posix.authorized_key:
+    user: "{{ pi_ssh_user }}"
+    key: "{{ lookup('ansible.builtin.file', pi_authorized_key) }}"
+    state: present
+    exclusive: true

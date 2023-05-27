@@ -1,0 +1,22 @@
+# PoE Hat Fan Speeds
+dtoverlay=rpi-poe
+dtparam=poe_fan_temp0=40000,poe_fan_temp0_hyst=1000
+dtparam=poe_fan_temp1=55000,poe_fan_temp1_hyst=5000
+dtparam=poe_fan_temp2=60000,poe_fan_temp2_hyst=5000
+dtparam=poe_fan_temp3=65000,poe_fan_temp3_hyst=5000
+
+# Disable WiFi and Bluetooth
+dtoverlay=disable-wifi
+dtoverlay=disable-bt
+
+# Disable audio
+dtparam=audio=off
+
+# Disable both HDMI 0 & 1 outputs
+dtoverlay=vc4-kms-v3d-pi4,nohdmi
+
+# Set the GPU memory split value.
+# The minimum value is 16. Less is not possible and default is 64.
+gpu_mem=16
+
+# Additional overlays and parameters are documented /boot/overlays/README

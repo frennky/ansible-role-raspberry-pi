@@ -1,0 +1,56 @@
+---
+# auto upgrade
+pi_auto_upgrade_reboot: "true"
+pi_auto_upgrade_reboot_time: "03:00"
+pi_auto_upgrade_blacklist: []
+
+# boot config
+pi_boot_config_template: "config.txt.j2"
+
+# fail2ban
+pi_fail2ban_configuration_template: "jail.local.j2"
+pi_sshd_port: 22
+
+# hostname
+pi_hostname: "raspberry"
+
+# install
+pi_upgrade_system: true
+pi_packages:
+  - curl
+
+# localization
+pi_locale: "en_US.UTF-8"
+pi_timezone: "Europe/Belgrade"
+pi_keyboard_layout: "us"
+
+# sshd
+pi_sshd_allowtcpforwarding: "yes"
+pi_sshd_allowusers:
+  - pi
+pi_sshd_challengeresponseauthentication: "no"
+pi_sshd_maxsessions: 2
+pi_sshd_passwordauthentication: "no"
+pi_sshd_permitemptypasswords: "no"
+pi_sshd_permitrootlogin: "no"
+pi_sshd_permittunnel: "no"
+pi_sshd_pubkeyauthentication: "yes"
+pi_sshd_x11forwarding: "no"
+
+pi_sshd_config:
+ - {key: AllowTcpForwarding, value: "{{ pi_sshd_allowtcpforwarding }}"}
+ - {key: AllowUsers, value: "{{ pi_sshd_allowusers | join(' ') }}"}
+ - {key: ChallengeResponseAuthentication, value: "{{ pi_sshd_challengeresponseauthentication }}"}
+ - {key: MaxSessions, value: "{{ pi_sshd_maxsessions }}" }
+ - {key: PasswordAuthentication, value: "{{ pi_sshd_passwordauthentication }}"}
+ - {key: PermitEmptyPasswords, value: "{{ pi_sshd_permitemptypasswords }}"}
+ - {key: PermitRootLogin, value: "{{ pi_sshd_permitrootlogin }}"}
+ - {key: PermitTunnel, value: "{{ pi_sshd_permittunnel }}"}
+ - {key: PubkeyAuthentication, value: "{{ pi_sshd_pubkeyauthentication }}"}
+ - {key: X11Forwarding, value: "{{ pi_sshd_x11forwarding }}"}
+
+# user accounts
+pi_sudoers_passwordless:
+  - pi
+pi_ssh_user: pi
+pi_authorized_key: "~/.ssh/id_ed25519.pub"

@@ -1,0 +1,17 @@
+---
+
+- ansible.builtin.import_tasks: user_accounts.yml
+
+- ansible.builtin.import_tasks: localization.yml
+
+- ansible.builtin.import_tasks: hostname.yml
+
+- ansible.builtin.import_tasks: boot_config.yml
+
+- ansible.builtin.import_tasks: install.yml
+
+- ansible.builtin.import_tasks: auto_upgrades.yml
+
+- ansible.builtin.import_tasks: fail2ban.yml
+
+- ansible.builtin.import_tasks: sshd.yml
