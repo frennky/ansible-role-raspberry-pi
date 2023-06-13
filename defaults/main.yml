@@ -17,7 +17,7 @@ pi_hostname: "raspberry"
 # install
 pi_upgrade_system: true
 pi_packages:
-  - curl
+  - open-iscsi
 
 # localization
 pi_locale: "en_US.UTF-8"
