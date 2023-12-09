@@ -1,12 +1,12 @@
 ---
 
 - name: Configure locale
-  ansible.builtin.locale_gen:
+  ansible.general.locale_gen:
     name: "{{ pi_locale }}"
     state: present
 
 - name: Configure timezone
-  ansible.builtin.timezone:
+  ansible.general.timezone:
     name: "{{ pi_timezone }}"
 
 - name: Configure keyboard

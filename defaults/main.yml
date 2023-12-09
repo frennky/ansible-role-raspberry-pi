@@ -38,16 +38,16 @@ pi_sshd_pubkeyauthentication: "yes"
 pi_sshd_x11forwarding: "no"
 
 pi_sshd_config:
- - {key: AllowTcpForwarding, value: "{{ pi_sshd_allowtcpforwarding }}"}
- - {key: AllowUsers, value: "{{ pi_sshd_allowusers | join(' ') }}"}
- - {key: ChallengeResponseAuthentication, value: "{{ pi_sshd_challengeresponseauthentication }}"}
- - {key: MaxSessions, value: "{{ pi_sshd_maxsessions }}" }
- - {key: PasswordAuthentication, value: "{{ pi_sshd_passwordauthentication }}"}
- - {key: PermitEmptyPasswords, value: "{{ pi_sshd_permitemptypasswords }}"}
- - {key: PermitRootLogin, value: "{{ pi_sshd_permitrootlogin }}"}
- - {key: PermitTunnel, value: "{{ pi_sshd_permittunnel }}"}
- - {key: PubkeyAuthentication, value: "{{ pi_sshd_pubkeyauthentication }}"}
- - {key: X11Forwarding, value: "{{ pi_sshd_x11forwarding }}"}
+  - {key: AllowTcpForwarding, value: "{{ pi_sshd_allowtcpforwarding }}"}
+  - {key: AllowUsers, value: "{{ pi_sshd_allowusers | join(' ') }}"}
+  - {key: ChallengeResponseAuthentication, value: "{{ pi_sshd_challengeresponseauthentication }}"}
+  - {key: MaxSessions, value: "{{ pi_sshd_maxsessions }}" }
+  - {key: PasswordAuthentication, value: "{{ pi_sshd_passwordauthentication }}"}
+  - {key: PermitEmptyPasswords, value: "{{ pi_sshd_permitemptypasswords }}"}
+  - {key: PermitRootLogin, value: "{{ pi_sshd_permitrootlogin }}"}
+  - {key: PermitTunnel, value: "{{ pi_sshd_permittunnel }}"}
+  - {key: PubkeyAuthentication, value: "{{ pi_sshd_pubkeyauthentication }}"}
+  - {key: X11Forwarding, value: "{{ pi_sshd_x11forwarding }}"}
 
 # user accounts
 pi_sudoers_passwordless:

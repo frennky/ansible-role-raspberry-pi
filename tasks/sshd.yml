@@ -3,7 +3,7 @@
 - name: Configure sshd
   ansible.builtin.lineinfile:
     dest: /etc/ssh/sshd_config
-    regexp: "^(#)?{{item.key}}"
+    regexp: "^(#)?{{ item.key }}"
     line: "{{ item.key }} {{ item.value }}"
     validate: "sshd -t -f %s"
   loop: "{{ pi_sshd_config }}"

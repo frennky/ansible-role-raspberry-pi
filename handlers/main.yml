@@ -1,6 +1,6 @@
 ---
 
-- name: reload sshd
-  service:
+- name: Reload sshd
+  ansible.legacy.service:
     name: ssh
     state: reloaded

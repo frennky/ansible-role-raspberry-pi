@@ -7,7 +7,7 @@
     line: '{{ item }} ALL=(ALL) NOPASSWD: ALL'
     state: present
     validate: 'visudo -cf %s'
-    mode: 0440
+    mode: '0440'
   with_items: "{{ pi_sudoers_passwordless }}"
   when: pi_sudoers_passwordless | length > 0
 
