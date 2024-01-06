@@ -18,6 +18,7 @@ pi_hostname: "raspberry"
 pi_upgrade_system: true
 pi_packages:
   - open-iscsi
+  - iptables
 
 # localization
 pi_locale: "en_US.UTF-8"
