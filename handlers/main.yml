@@ -2,6 +2,7 @@
 
 - name: Reboot system
   ansible.builtin.reboot:
+    post_reboot_delay: 60
 
 - name: Reload sshd
   ansible.legacy.service:
