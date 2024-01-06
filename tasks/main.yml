@@ -1,17 +1,25 @@
 ---
 
-- ansible.builtin.import_tasks: user_accounts.yml
+- name: Import user account tasks
+  ansible.builtin.import_tasks: user_accounts.yml
 
-- ansible.builtin.import_tasks: localization.yml
+- name: Import localization tasks
+  ansible.builtin.import_tasks: localization.yml
 
-- ansible.builtin.import_tasks: hostname.yml
+- name: Import hostname tasks
+  ansible.builtin.import_tasks: hostname.yml
 
-- ansible.builtin.import_tasks: boot_config.yml
+- name: Import boot config tasks
+  ansible.builtin.import_tasks: boot_config.yml
 
-- ansible.builtin.import_tasks: install.yml
+- name: Import install tasks
+  ansible.builtin.import_tasks: install.yml
 
-- ansible.builtin.import_tasks: auto_upgrades.yml
+- name: Import automatic upgrade tasks
+  ansible.builtin.import_tasks: auto_upgrades.yml
 
-- ansible.builtin.import_tasks: fail2ban.yml
+- name: Import fail2ban tasks
+  ansible.builtin.import_tasks: fail2ban.yml
 
-- ansible.builtin.import_tasks: sshd.yml
+- name: Import sshd tasks
+  ansible.builtin.import_tasks: sshd.yml

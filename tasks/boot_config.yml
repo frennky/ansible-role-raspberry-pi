@@ -5,8 +5,7 @@
     path: /boot/config.txt
     insertafter: EOF
     block: "{{ lookup('ansible.builtin.template', pi_boot_config_template) }}"
-  register: boot_config
+  notify: Reboot system
 
-- name: Reboot system
-  ansible.builtin.reboot:
-  when: boot_config is changed
+- name: Flush handlers
+  ansible.builtin.meta: flush_handlers
