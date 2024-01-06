@@ -1,5 +1,9 @@
 ---
 
+- name: Reboot system
+  ansible.builtin.reboot:
+  when: boot_config is changed
+
 - name: Reload sshd
   ansible.legacy.service:
     name: ssh
