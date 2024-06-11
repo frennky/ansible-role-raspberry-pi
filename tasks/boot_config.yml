@@ -1,8 +1,8 @@
 ---
 
-- name: Set options in /boot/config.txt
+- name: Set options in /boot/firmware/config.txt
   ansible.builtin.blockinfile:
-    path: /boot/config.txt
+    path: /boot/firmware/config.txt
     insertafter: EOF
     block: "{{ lookup('ansible.builtin.template', pi_boot_config_template) }}"
   notify: Reboot system
