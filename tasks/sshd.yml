@@ -8,3 +8,5 @@
     validate: "sshd -t -f %s"
   loop: "{{ pi_sshd_config }}"
   notify: Reload sshd
+  state: present
+  validate: 'sshd -t -f %s'
