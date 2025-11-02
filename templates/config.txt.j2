@@ -1,10 +1,3 @@
-# PoE Hat Fan Speeds
-dtoverlay=rpi-poe
-dtparam=poe_fan_temp0=40000,poe_fan_temp0_hyst=1000
-dtparam=poe_fan_temp1=55000,poe_fan_temp1_hyst=5000
-dtparam=poe_fan_temp2=60000,poe_fan_temp2_hyst=5000
-dtparam=poe_fan_temp3=65000,poe_fan_temp3_hyst=5000
-
 # Disable WiFi and Bluetooth
 dtoverlay=disable-wifi
 dtoverlay=disable-bt
@@ -12,15 +5,42 @@ dtoverlay=disable-bt
 # Disable audio
 dtparam=audio=off
 
+[pi4]
+
 # Disable both HDMI 0 & 1 outputs
 dtoverlay=vc4-kms-v3d-pi4,nohdmi
+
+# PoE Hat Fan Speeds
+dtoverlay=rpi-poe
+dtparam=poe_fan_temp0=40000,poe_fan_temp0_hyst=1000
+dtparam=poe_fan_temp1=55000,poe_fan_temp1_hyst=5000
+dtparam=poe_fan_temp2=60000,poe_fan_temp2_hyst=5000
+dtparam=poe_fan_temp3=65000,poe_fan_temp3_hyst=5000
+
+# PoE Hat Plus Fan Speeds
+dtoverlay=rpi-poe-plus
+dtparam=poe_fan_temp0=40000,poe_fan_temp0_hyst=1000
+dtparam=poe_fan_temp1=55000,poe_fan_temp1_hyst=5000
+dtparam=poe_fan_temp2=60000,poe_fan_temp2_hyst=5000
+dtparam=poe_fan_temp3=65000,poe_fan_temp3_hyst=5000
 
 # Set the GPU memory split value.
 # The minimum value is 16. Less is not possible and default is 64.
 gpu_mem=16
 
-# Additional overlays and parameters are documented /boot/overlays/README
-
 [pi5]
+
+# PCIE
 dtparam=pciex1
 dtparam=pciex1_gen=3
+
+# Fan Speeds
+dtparam=fan_temp0=50000,fan_temp0_hyst=5000
+dtparam=fan_temp1=60000,fan_temp1_hyst=5000
+dtparam=fan_temp2=70000,fan_temp2_hyst=5000
+dtparam=fan_temp3=77500,fan_temp3_hyst=5000
+
+# HDMI
+dtparam=hdmi=off
+
+# Additional overlays and parameters are documented /boot/overlays/README
